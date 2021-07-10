@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationDetailHeaderView" customModule="GoGet" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="aF4-1d-hSr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="491"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKS-Bt-8Gg">
+                    <rect key="frame" x="16" y="60" width="41.5" height="419"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="P300"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cars found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNh-fP-6nf">
+                    <rect key="frame" x="57.5" y="259.5" width="81" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="x3y-LJ-WzC">
+                    <rect key="frame" x="278" y="256.5" width="118" height="26"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ssc-C5-Usb" customClass="AnimatedButton" customModule="GoGet" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="53" height="26"/>
+                            <color key="backgroundColor" name="S10"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="CKB-lC-jvd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="  Filter  ">
+                                <color key="titleColor" name="C300"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heN-tB-s8r" customClass="AnimatedButton" customModule="GoGet" customModuleProvider="target">
+                            <rect key="frame" x="65" y="0.0" width="53" height="26"/>
+                            <color key="backgroundColor" name="S10"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="  Map  ">
+                                <color key="titleColor" name="C300"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="x3y-LJ-WzC" secondAttribute="trailing" constant="16" id="4vN-QB-z4h"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zKS-Bt-8Gg" secondAttribute="bottom" constant="12" id="5c0-Rf-Kgw"/>
+                <constraint firstItem="zKS-Bt-8Gg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="HDD-Rh-Jhp"/>
+                <constraint firstItem="x3y-LJ-WzC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VNh-fP-6nf" secondAttribute="trailing" constant="12" id="axX-ll-HLB"/>
+                <constraint firstItem="VNh-fP-6nf" firstAttribute="leading" secondItem="zKS-Bt-8Gg" secondAttribute="trailing" id="cBO-e1-wpr"/>
+                <constraint firstItem="x3y-LJ-WzC" firstAttribute="centerY" secondItem="VNh-fP-6nf" secondAttribute="centerY" id="feg-Ch-7FW"/>
+                <constraint firstItem="VNh-fP-6nf" firstAttribute="centerY" secondItem="zKS-Bt-8Gg" secondAttribute="centerY" id="rCN-nJ-KMA"/>
+                <constraint firstItem="zKS-Bt-8Gg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="wuY-NF-5mJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-34.782608695652179" y="-1.6741071428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="C300">
+            <color red="0.21199999749660492" green="0.24699999392032623" blue="0.30199998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="P300">
+            <color red="0.9882352941176471" green="0.16470588235294117" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="S10">
+            <color red="0.96899998188018799" green="0.97600001096725464" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
