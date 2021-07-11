@@ -16,6 +16,11 @@ class LocationDetailViewController: UIViewController {
     @IBAction func handleBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
+    @objc func handleCellClick() {
+        let carDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "cardetailvc")
+        navigationController?.pushViewController(carDetailVC, animated: true)
+    }
 }
 
 //MARK: - View lifecycle.
@@ -31,6 +36,11 @@ extension LocationDetailViewController {
         tableView.allowsSelection = false
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 44
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
 }
 
@@ -87,6 +97,8 @@ extension LocationDetailViewController: UITableViewDataSource, UITableViewDelega
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationDetailTableViewCell.CELL_IDENTIFIER, for: indexPath) as? LocationDetailTableViewCell else {
             return UITableViewCell()
         }
+        
+        cell.actionBtn.addTarget(self, action: #selector(handleCellClick), for: .touchUpInside)
         
         return cell
     }

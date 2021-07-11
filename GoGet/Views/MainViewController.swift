@@ -15,8 +15,11 @@ class MainViewController: UIViewController {
     
     
     @IBAction func handleLocationBtnClick(_ sender: Any) {
-        let locationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "locationdetailvc")
-        tabBarController?.navigationController?.pushViewController(locationVC, animated: true)
+        animateViews(isAnimate: true, isShow: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {[unowned self] in
+            let locationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "locationdetailvc")
+            self.tabBarController?.navigationController?.pushViewController(locationVC, animated: true)
+        }
     }
 }
 
@@ -33,12 +36,47 @@ extension MainViewController {
         bottomFloatView.addAccentShadow()
         bottomFloatCornerRadiusView.layer.cornerRadius = 12
         bottomFloatCornerRadiusView.clipsToBounds = true
+        
+        animateViews(isAnimate: false, isShow: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animateViews(isShow: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 }
 
-class MainNavViewcontroller: UINavigationController {
+//MARK: - Animations.
+extension MainViewController {
+    private func animateViews(isAnimate: Bool = true, isShow: Bool, completion: ((Bool)->Void)? = nil) {
+        UIView.easeSpringAnimation(isAnimate: isAnimate, delay: isShow ? 0.3 : 0.3) {[unowned self] in
+            self.bottomFloatView.alpha = isShow ? 1 : 0
+            self.bottomFloatView.transform = isShow ? .identity : CGAffineTransform(translationX: 0, y: self.bottomFloatView.frame.height)
+        }
+        
+        UIView.easeSpringAnimation(isAnimate: isAnimate, withDuration: 1,  delay: isShow ? 0.6 : 0.2, usingSpringWithDamping: 0.6, animations: {[unowned self] in
+            self.locationBtn.alpha = isShow ? 1 : 0
+            self.locationBtn.transform = isShow ? .identity : CGAffineTransform(translationX: 40, y: 0)
+        }, completion: completion)
+        
+        UIView.easeSpringAnimation(isAnimate: isAnimate, withDuration: 1,  delay: isShow ? 0.8 : 0, usingSpringWithDamping: 0.6) {[unowned self] in
+            self.notificationBtn.alpha = isShow ? 1 : 0
+            self.notificationBtn.transform = isShow ? .identity : CGAffineTransform(translationX: 40, y: 0)
+        }
+    }
+}
+
+
+//MARK: - Main parent views.
+class MainNavViewcontroller: UINavigationController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self
         setNavigationBarHidden(true, animated: false)
     }
 }
