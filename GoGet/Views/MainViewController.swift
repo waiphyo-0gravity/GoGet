@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var notificationBtn: AnimatedButton!
     @IBOutlet weak var locationBtn: AnimatedButton!
     @IBOutlet weak var bottomFloatCornerRadiusView: UIView!
-    
+    @IBOutlet weak var rentACarLbl: UILabel!
     
     @IBAction func handleLocationBtnClick(_ sender: Any) {
         animateViews(isAnimate: true, isShow: false)
@@ -54,6 +54,7 @@ extension MainViewController {
 //MARK: - Animations.
 extension MainViewController {
     private func animateViews(isAnimate: Bool = true, isShow: Bool, completion: ((Bool)->Void)? = nil) {
+        
         UIView.easeSpringAnimation(isAnimate: isAnimate, delay: isShow ? 0.3 : 0.3) {[unowned self] in
             self.bottomFloatView.alpha = isShow ? 1 : 0
             self.bottomFloatView.transform = isShow ? .identity : CGAffineTransform(translationX: 0, y: self.bottomFloatView.frame.height)
@@ -67,6 +68,9 @@ extension MainViewController {
         UIView.easeSpringAnimation(isAnimate: isAnimate, withDuration: 1,  delay: isShow ? 0.8 : 0, usingSpringWithDamping: 0.6) {[unowned self] in
             self.notificationBtn.alpha = isShow ? 1 : 0
             self.notificationBtn.transform = isShow ? .identity : CGAffineTransform(translationX: 40, y: 0)
+            
+            self.rentACarLbl.alpha = isShow ? 1 : 0
+            self.rentACarLbl.transform = isShow ? .identity : CGAffineTransform(translationX: -40, y: 0)
         }
     }
 }

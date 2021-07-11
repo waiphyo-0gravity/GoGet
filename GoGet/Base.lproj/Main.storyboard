@@ -244,6 +244,12 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rent a car" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxN-rW-rNF">
+                                <rect key="frame" x="16" y="545" width="121" height="31.333333333333371"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" name="P300"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -252,12 +258,14 @@
                             <constraint firstItem="OQN-wt-p4a" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5Gp-rt-3nT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tuc-tc-4n2" secondAttribute="trailing" constant="16" id="6KU-2n-DZb"/>
                             <constraint firstItem="hu1-d6-jpq" firstAttribute="trailing" secondItem="tuc-tc-4n2" secondAttribute="trailing" id="6V8-1C-Hy7"/>
+                            <constraint firstItem="tuc-tc-4n2" firstAttribute="top" secondItem="UxN-rW-rNF" secondAttribute="bottom" constant="12" id="Dc5-Xh-0Un"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tuc-tc-4n2" secondAttribute="trailing" constant="126" id="Fv8-yi-LYn"/>
                             <constraint firstItem="tuc-tc-4n2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="750" constant="16" id="GHH-M7-cbX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tuc-tc-4n2" secondAttribute="bottom" constant="24" id="H54-tp-fic"/>
                             <constraint firstItem="OQN-wt-p4a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PV5-lv-hG2"/>
                             <constraint firstItem="tuc-tc-4n2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RsO-IJ-DqA"/>
                             <constraint firstItem="tuc-tc-4n2" firstAttribute="top" secondItem="hu1-d6-jpq" secondAttribute="bottom" constant="24" id="Sdz-NN-EYa"/>
+                            <constraint firstItem="UxN-rW-rNF" firstAttribute="leading" secondItem="tuc-tc-4n2" secondAttribute="leading" id="eIQ-yA-zCF"/>
                             <constraint firstItem="tuc-tc-4n2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gUN-Vd-xt2"/>
                             <constraint firstItem="yZD-5e-dJI" firstAttribute="width" secondItem="yZD-5e-dJI" secondAttribute="height" multiplier="1:1" id="lXc-LC-dWt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OQN-wt-p4a" secondAttribute="bottom" id="mQq-co-M7r"/>
@@ -288,6 +296,7 @@
                         <outlet property="bottomFloatView" destination="tuc-tc-4n2" id="Pea-Na-dCu"/>
                         <outlet property="locationBtn" destination="hu1-d6-jpq" id="kDd-vN-c3J"/>
                         <outlet property="notificationBtn" destination="yZD-5e-dJI" id="9Ol-VO-lS2"/>
+                        <outlet property="rentACarLbl" destination="UxN-rW-rNF" id="aGZ-iW-VAR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -611,13 +620,13 @@
                                                             <rect key="frame" x="110" y="0.0" width="110" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Mileage fee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtX-FS-g2Z">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="14.333333333333334"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                     <color key="textColor" name="C75"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="$0.40/km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzB-M6-77E">
-                                                                    <rect key="frame" x="0.0" y="18.333333333333329" width="110" height="21.666666666666671"/>
+                                                                    <rect key="frame" x="0.0" y="24.333333333333332" width="110" height="15.666666666666668"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -918,13 +927,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="134" height="50"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Start date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5U7-iJ-gNn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50.666666666666664" height="12"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50.666666666666664" height="13.333333333333334"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                                                     <color key="textColor" name="S70"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Mon, 1 Nov 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwm-wc-bkX">
-                                                                    <rect key="frame" x="0.0" y="16" width="83.666666666666671" height="15.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="17.333333333333343" width="83.666666666666671" height="14.333333333333336"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                     <color key="textColor" name="C300"/>
                                                                     <nil key="highlightedColor"/>
@@ -1441,8 +1450,8 @@
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="arrow.turn.up.right" catalog="system" width="128" height="99"/>
-        <image name="car" width="800" height="400"/>
         <image name="car" catalog="system" width="128" height="93"/>
+        <image name="car" width="800" height="400"/>
         <image name="car.fill" catalog="system" width="128" height="93"/>
         <image name="date_icon" width="24" height="24"/>
         <image name="help_icon" width="24" height="24"/>
